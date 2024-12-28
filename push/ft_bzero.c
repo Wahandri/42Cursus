@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 23:55:19 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/11 21:07:46 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/10 20:08:25 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/22 17:44:37 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,17 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*ptr;
-	size_t			i;
-
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = 0;
-		i++;
-	}
+	ft_memset(s, 0, n);
 }
 
-#include <unistd.h>
-int main()
+/* int	main(void)
 {
-    char str[10] = "Hola mundo";
-    int i;
+	char	s[12] = "Hello World";
+	ft_bzero(s, 5);
+	printf ("%s\n", s);
 
-    ft_bzero(str + 2, 3);
-    i = 0;
-    while (str[i] != '\0')
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
-
-    return 0;
-}
-
+	char	s1[12] = "Hello World";
+	bzero(s, 5);
+	printf ("%s\n", s);
+	return (0);
+} */

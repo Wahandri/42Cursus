@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 22:50:05 by cpineda-          #+#    #+#             */
-/*   Updated: 2024/12/20 18:45:58 by cpineda-         ###   ########.fr       */
+/*   Created: 2024/12/22 19:12:02 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/22 20:05:03 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
-	size_t	sl;
-	size_t	dl;
 
 	i = 0;
-	sl = ft_strlen(src);
-	dl = ft_strlen(dst);
-	if (dstsize <= dl || !src)
-		return (sl + dstsize);
-	while (src[i] != '\0' && (dl + i) < (dstsize - 1))
+	while (s[i])
 	{
-		dst[dl + i] = src[i];
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	if ((dl + i) < dstsize)
-		dst[dl + i] = '\0';
-	return (sl + dl);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
-	char	dst[50] = "Hello ";
-	const char	src[] = "World";
+	ft_putstr_fd("Hello, world!\n", 1);
+	ft_putstr_fd("This is a test of putstr_fd.\n", 1);
 
-	printf("%zu\n", ft_strlcat(dst, src, 2)); 
 	return (0);
-}*/
+} */

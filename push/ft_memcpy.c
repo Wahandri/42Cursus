@@ -3,49 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:03:57 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:04:01 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/11 19:14:11 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/16 13:32:36 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, unsigned int n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	int					i;
+	size_t			i;
 
-	if (!dst && !src)
-		return (0);
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
 	i = 0;
+	if (src == NULL && dest == NULL)
+		return (NULL);
 	while (i < n)
 	{
-		d[i] = s[i];
+		((char *)dest)[i] = ((const char *)src)[i];
 		i++;
 	}
-	return (dst);
+	return (dest);
 }
-/*
-#include <stdio.h>
-int main(void)
+
+/* int	main(void)
 {
-	char	src[] = "Hola mundo";
-	char	dst[20];
+	char	s1[] = "Hello World";
+	char	dest1[50];
+	ft_memcpy(dest1, s1, 5);
+	printf ("%s\n", dest1);
 
-	printf("Origen: %s\n", src);
-	printf("Destino: %s\n", dst);
-
-	ft_memcpy(dst, src, 7);
-
-	printf("Después de ft_memcpy:\n");
-	printf("Origen: %s\n", src);
-	printf("Destino: %s\n", dst);
-
-	return 0;
-}
-*/
+	char	s2[] = "Hello World";
+	char	dest2[50];
+	memcpy(dest2, s2, 5);
+	printf ("%s\n", dest2);
+	return (0);
+} */

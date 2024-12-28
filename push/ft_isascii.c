@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 21:22:54 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:01:56 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/03 20:45:32 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/03 20:53:36 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,11 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-int main()
+
+/*int	main(void)
 {
-	int	c;
-
-	printf("Ingrese un caracter: ");
-	scanf("%i", &c);
-	printf("El caracter %i es ASCII? %i\n", c, ft_isascii(c));
-
-	return 0;
-}
-*/
+	printf("%d\n", ft_isascii('c'));
+	printf("%d\n", ft_isascii('7'));
+	printf("%d\n", ft_isascii(128));
+	return (0);
+}*/

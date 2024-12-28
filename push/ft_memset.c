@@ -3,39 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:04:30 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:04:33 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/11 16:44:15 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/22 17:42:26 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	unsigned int	i;
+	char			*s1;
 
-	ptr = (unsigned char *)b;
 	i = 0;
-	while (i < len)
+	s1 = (char *)s;
+	while (i < n)
 	{
-		ptr[i] = (unsigned char)c;
+		s1[i] = (char) c;
 		i++;
 	}
-	return (b);
+	s = s1;
+	return ((char *)s);
 }
-/*
-#include <stdio.h>
-int	main(void)
+
+/* int	main(void)
 {
-	char	str[20] = "42 Málaga es genial";
+	char	s[12] = "Hello World";
+	ft_memset(s, 'H', 5);
+	printf ("%s\n", s);
 
-	printf("Antes de memset: %s\n", str);
-	ft_memset(str + 3, '-', 5);
-	printf("Después de memset: %s\n", str);
-
-	return 0;
-}
-*/
+	char	s1[12] = "Hello World";
+	memset(s, 'H', 5);
+	printf ("%s\n", s);
+	return (0);
+} */

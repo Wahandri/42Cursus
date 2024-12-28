@@ -3,37 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 13:26:37 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:04:58 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/05 16:19:11 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/17 16:24:23 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen( char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	l;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	l = 0;
+	while (s[l] != '\0')
+		l++;
+	return (l);
 }
-/*
-#include <stdio.h>
-int main ()
+
+/* int	main(void)
 {
-	char 	str[10];
-	
-	printf("Introduce un 'string'");
-	scanf("%s", str);
-
-	printf("La longitud del string es %i", ft_strlen(str));	
-
-	return 0;
-}
-*/
+	printf("%zu\n", ft_strlen("Hello World"));
+	return (0);
+} */

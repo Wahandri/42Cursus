@@ -3,43 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 20:02:57 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/11 20:10:41 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/28 11:40:53 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/28 12:11:34 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char *s, int start, int len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    char *substr;
-    int i;
+	char	*str;
+	size_t	i;
 
-    i = 0;
-    if (!s)
-        return (NULL);
-    if (start > ft_strlen(s))
-        return (ft_strdup(""));
-    if (!(substr = (char *)malloc(sizeof(char) * (len + 1))))
-        return (NULL);
-    while (i < len && s[start])
-    {
-        substr[i] = s[start];
-        i++;
-        start++;
-    }
-    substr[i] = '\0';
-    return (substr);
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		len = 0;
+	if (ft_strlen(s) < len)
+		len = ft_strlen(s);
+	str = (char *)malloc(sizeof(*s) * (len +1));
+	if (!str)
+		return (NULL);
+	while (i < len)
+	{
+		str[i] = s[i + start];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
-
-#include <stdio.h>
-int main ()
+/* int	main(void)
 {
-    char *s = "Hello World!";
-    char *substr = ft_substr(s, 6, 5);
-    printf("%s\n", substr);
+    char *s = "Hello, World!";
+    char *res;
+
+    res = ft_substr(s, 0, 4);
+    printf("\"%s\" -> \"%s\"\n", s, res);
+    free(res);
+
+    res = ft_substr(s, 7, 5);
+    printf("\"%s\" -> \"%s\"\n", s, res);
+    free(res);
+
+    res = ft_substr(s, 7, 20);
+    printf("\"%s\" -> \"%s\"\n", s, res);
+    free(res);
+
+    res = ft_substr(s, 50, 10);
+    printf("Caso 4: \"%s\" -> \"%s\"\n", s, res);
+    free(res);
+
+    res = ft_substr("", 0, 5);
+    printf("Caso 5: \"%s\" -> \"%s\"\n", "", res);
+    free(res);
 
     return 0;
-}
+} */

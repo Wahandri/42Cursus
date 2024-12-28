@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 16:24:40 by cpineda-          #+#    #+#             */
-/*   Updated: 2024/12/16 17:47:49 by cpineda-         ###   ########.fr       */
+/*   Created: 2024/12/22 20:31:55 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/28 11:32:52 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-
-	if (src == NULL && dest == NULL)
-		return (0);
-	d = (unsigned char *)dest;
-	s = (unsigned char *)src;
-	if (d >= s)
+	if (n == -2147483648)
 	{
-		while (n--)
-			d[n] = s[n];
+		ft_putchar_fd('-', fd);
+		ft_putstr_fd("2147483648", fd);
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
-		ft_memcpy(d, s, n);
-	return (dest);
+		ft_putchar_fd(n + '0', fd);
 }
 
-/* int main(void)
+/* int	main(void)
 {
-	char src[] = "Hello World";
-	char dest[] = "Hello 1";
+	ft_putnbr_fd(1234, 1);
+	ft_putnbr_fd(-1234, 1);
 
-	ft_memmove(dest, src, 12);
-	printf("src: %s\n", src);
-	printf("dest: %s\n", dest);
-
-	return 0;
+	return (0);
 } */

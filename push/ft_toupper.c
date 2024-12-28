@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:05:29 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:05:37 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/06 00:51:52 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/06 01:21:11 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,13 @@
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
+		c = c - 32;
 	return (c);
 }
-/*
-#include <stdio.h>
-int main()
+
+/* int	main(void)
 {
-	char a, b, c;
-	
-	a = 'a';
-	b = 'B';
-	c = 5;
-	printf("a es %c\n", ft_toupper(a));
-	printf("B es %c\n", ft_toupper(b));
-	printf("5 es %c\n", ft_toupper(c));
-	return 0;
-}
-*/
+	printf("%d\n", ft_toupper('h'));
+	printf("%d\n", ft_toupper('K'));
+	return (0);
+} */

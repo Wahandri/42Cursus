@@ -3,35 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:02:27 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:02:37 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/03 17:57:24 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/03 20:43:07 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit( int arg)
+int	ft_isdigit(int c)
 {
-	if (arg >= '0' && arg <= '9')
-	{
+	if (c >= '0' && c <= '9')
 		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char arg;
-	
-	arg = '2';
-	printf("%i", ft_isdigit(arg));
 
-	return 0;
-}
-*/
+/*int	main(void)
+{
+	printf("%d\n", ft_isdigit('c'));
+	printf("%d\n", ft_isdigit('7'));
+	return (0);
+}*/

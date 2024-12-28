@@ -3,53 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 20:24:07 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/11 19:44:54 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/17 13:56:06 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/17 16:40:07 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(int count, int size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	int		i;
 
-	ptr = malloc(count * size);
-	if (ptr == 0)
-		return (0);
-	i = 0;
-	while (i < count * size)
-	{
-		((char *)ptr)[i] = 0;
-		i++;
-	}
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-    int *arr;
-    int n = 5;
-
-    arr = (int *)ft_calloc(n, sizeof(int));
-
-    if (!arr)
-    {
-        printf("Error al asignar memoria\n");
-        return (1);
-    }
-
-    printf("Arreglo inicializado a cero:\n");
-    for (int i = 0; i < n; i++)
-        printf("arr[%d] = %d\n", i, arr[i]);
-
-
-    free(arr);
-
-    return (0);
-}
-*/

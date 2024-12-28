@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 01:23:21 by cpineda-          #+#    #+#             */
-/*   Updated: 2024/12/22 18:02:46 by cpineda-         ###   ########.fr       */
+/*   Created: 2024/12/28 13:33:25 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/28 13:37:27 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
-}
+	int	i;
 
-/* int	main(void)
-{
-	char	s[12] = "Hello World";
-	printf ("%s\n", ft_strchr(s, 'W'));
-	return (0);
-} */
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}

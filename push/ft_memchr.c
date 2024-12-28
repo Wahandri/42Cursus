@@ -3,28 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:03:27 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:03:33 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/16 17:31:58 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/16 18:38:57 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, unsigned int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*ptr;
-	int		i;
+	unsigned int	i;
 
-	ptr = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		if (ptr[i] == (unsigned char)c)
-		{
-			return ((void *)(ptr + i));
-		}
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((unsigned char *)s + i);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
+
+/* int	main(void)
+{
+	char	str[] = "Hello, this is a memchr test example!";
+	char	*result;
+	char	search = 'e';
+
+	result = (char *)ft_memchr(str, search, strlen(str));
+	if (result != NULL)
+		printf("Found '%c' at position: %ld\n", search, result - str);
+	else
+		printf("Character '%c' not found.\n", search);
+	search = 'z';
+	result = (char *)ft_memchr(str, search, strlen(str));
+	if (result != NULL)
+		printf("Found '%c' at position: %ld\n", search, result - str);
+	else
+		printf("Character '%c' not found.\n", search);
+
+	return (0);
+} */

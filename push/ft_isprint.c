@@ -3,33 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:03:03 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:03:11 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/03 20:55:19 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/03 20:59:29 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int arg)
+int	ft_isprint(int c)
 {
-	if (arg >= 32 && arg <= 126)
-	{
+	if (c >= 32 && c <= 126)
 		return (1);
-	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int main()
+
+/*int	main(void)
 {
-	int	c;
-
-	printf("Ingrese un caracter: ");
-	scanf("%i", &c);
-	printf("El caracter %i es ASCII? %i\n", c, ft_isprint(c));
-
-	return 0;
-}
-*/
+	printf("%d\n", ft_isprint('c'));
+	printf("%d\n", ft_isprint('7'));
+	printf("%d\n", ft_isprint(128));
+	printf("%d\n", ft_isprint(7000));
+	return (0);
+}*/

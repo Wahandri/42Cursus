@@ -3,50 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:04:49 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:04:51 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/05 20:32:07 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/17 20:37:01 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dst, char *src, int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
-	int	len;
+	size_t	l;
+	size_t	slen;
 
-	i = 0;
-	len = 0;
-	while (src[len] != '\0')
+	slen = 0;
+	while (src[slen] != '\0')
+		slen++;
+	if (dstsize == 0)
+		return (slen);
+	l = 0;
+	while (src[l] != '\0' && l < dstsize - 1)
 	{
-		len++;
+		dst[l] = src[l];
+		l++;
 	}
-	if (size > 0)
-	{
-		while (i < size - 1 && src[i != '\0'])
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (len);
+	dst[l] = '\0';
+	return (slen);
 }
-/*
-#include <stdio.h>
-int	main(void)
+
+/* int	main(void)
 {
-	char	src[] = "42 Málaga es genial";
-	char	dst[20];
-	int	dstsize = 15;
-	int	result = ft_strlcpy(dst, src, dstsize);
-
-	printf("Fuente: '%s'\n", src);
-	printf("Destino: '%s'\n", dst);
-	printf("Longitud de la fuente: %d\n", result);
-
-	return 0;
-}
-*/
+	char	dst[50] = "test";
+	
+	printf("%zu\n", ft_strlcpy(dst, "Hello World", 8));
+	return (0);
+} */

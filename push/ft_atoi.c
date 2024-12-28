@@ -3,44 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 20:20:23 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/10 20:23:16 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/16 20:08:16 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/16 23:21:14 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	result;
+	unsigned int	i;
+	const char		*n;
+	int				sign;
+	unsigned int	r;
 
 	i = 0;
+	n = nptr;
 	sign = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	r = 0;
+	while ((n[i] >= 9 && n[i] <= 13) || n[i] == ' ')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (n[i] == '+' || n[i] == '-')
 	{
-		if (str[i] == '-')
+		if (n[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (n[i] >= '0' && n[i] <= '9')
 	{
-		result = result * 10 + str[i] - '0';
+		r = r * 10 + (n[i] - '0');
 		i++;
 	}
-	return (result * sign);
+	return (r * sign);
 }
-/*
-int	main()
+
+/* int	main(void)
 {
-    char *str = "   -42";
-    printf("%d\n", ft_atoi(str));
-    return 0;
-}
-*/
+	printf("String: \"   -1234\" -> Number: %d\n", ft_atoi("   -1234"));
+	printf("String: \"42\" -> Number: %d\n", ft_atoi("42"));
+	printf("String: \"+5678\" -> Number: %d\n", ft_atoi("+5678"));
+	printf("String: \"  0\" -> Number: %d\n", ft_atoi("  0"));
+	printf("String: \"abc\" -> Number: %d\n", ft_atoi("abc"));
+	printf("String: \"  -42abcd\" -> Number: %d\n", ft_atoi("  -42abcd"));
+	return (0);
+} */

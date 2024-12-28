@@ -3,42 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:00:57 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:01:09 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/03 18:04:23 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/03 20:42:11 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalnum(char c)
+int	ft_isalnum(int c)
 {
-	if ((c >= '0') && (c <= '9')
-		|| (c >= 'a') && (c <= 'z')
-		|| (c >= 'A') && (c <= 'Z'))
-	{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z' ))
 		return (1);
-	}
+	else if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
 }
-/*
-#include <stdio.h>
-int main()
+
+/*int	main(void)
 {
-    char a, b, c, d, e;
-
-    a = '5';
-    b = 'f';
-    c = 'D';
-    d = '&';
-    e = ' ';
-    printf("%c es: %i\n", a, ft_isalnum(a));
-    printf("%c es: %i\n", b, ft_isalnum(b));
-    printf("%c es: %i\n", c, ft_isalnum(c));
-    printf("%c es: %i\n", d, ft_isalnum(d));
-    printf("%c es: %i\n", e, ft_isalnum(e));
-
-    return 0;
-}
-*/
+	printf("%d\n", ft_isalnum('c'));
+	printf("%d\n", ft_isalnum('7'));
+	printf("%d\n", ft_isalnum('%'));
+	return (0);
+}*/

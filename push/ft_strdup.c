@@ -3,43 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 20:33:39 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/11 19:57:39 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/17 16:59:34 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/22 18:08:32 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *s)
 {
-	int		i;
-	char	*dest;
+	char	*ob;
 
-	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(i + 1);
-	if (dest == 0)
-		return (0);
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	ob = (char *)malloc(ft_strlen(s) + 1);
+	if (ob == NULL)
+		return (NULL);
+	ft_strlcpy(ob, s, ft_strlen(s) + 1);
+	return (ob);
 }
-/*
-#include <stdio.h>
-int	main()
+
+/* int	main(void)
 {
-	char *src = "Hello World";
-	char *dest = ft_strdup(src);
+	char	*str = "Hello World";
+	char	*cpy;
 
-	printf("%s\n", dest);
-	return 0;
-}
-*/
+	cpy = ft_strdup(str);
+	printf("%s\n", cpy);
+	free(cpy);
+	return (0);
+} */

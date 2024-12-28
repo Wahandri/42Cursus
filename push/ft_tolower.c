@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 00:05:21 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/06 00:05:23 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/06 01:11:24 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/06 01:13:39 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,13 @@
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
+		c = c + 32;
 	return (c);
 }
-/*
-#include <stdio.h>
-int main()
+
+/* int	main(void)
 {
-	char a, b, c;
-	
-	a = 'a';
-	b = 'B';
-	c = 5;
-	printf("a es %c\n", ft_tolower(a));
-	printf("B es %c\n", ft_tolower(b));
-	printf("5 es %c\n", ft_tolower(c));
-	return 0;
-}
-*/
+	printf("%d\n", ft_tolower('h'));
+	printf("%d\n", ft_tolower('K'));
+	return (0);
+} */

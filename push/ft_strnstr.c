@@ -3,43 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manugar2 <manugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cpineda- <cpineda-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 20:36:31 by manugar2          #+#    #+#             */
-/*   Updated: 2024/12/10 20:44:11 by manugar2         ###   ########.fr       */
+/*   Created: 2024/12/10 18:37:47 by cpineda-          #+#    #+#             */
+/*   Updated: 2024/12/16 16:17:33 by cpineda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *haystack, char *needle, int len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	ib;
+	size_t	il;
 
-	i = 0;
-	if (needle[0] == '\0')
-		return (haystack);
-	while (haystack[i] && i < len)
+	ib = 0;
+	if (*little == '\0')
+		return ((char *)big);
+	while (big[ib] && ib < len)
 	{
-		j = 0;
-		while (haystack[i + j] == needle[j] && i + j < len)
-		{
-			if (needle[j + 1] == '\0')
-				return (&haystack[i]);
-			j++;
-		}
-		i++;
+		il = 0;
+		while (big[ib + il] == little[il] && (ib + il) < len && big[ib + il])
+			il++;
+		if (little[il] == '\0')
+			return ((char *)big + ib);
+		ib++;
 	}
 	return (0);
 }
-/*
-int main()
+
+/* int	main(void)
 {
-    char *haystack = "Hello World";
-    char *needle = "World";
-    int len = 11;
-    printf("%s\n", ft_strnstr(haystack, needle, len));
-    return 0;
-}
-*/
+	char	big[50] = "Hello Wold World";
+	printf ("%s\n", ft_strnstr(big, "Wor", 5));    // No debería encontrar "Wor"
+	printf ("%s\n", ft_strnstr(big, "", 20));     // "Hello Wold World"
+	printf ("%s\n", ft_strnstr(big, "World", 12)); // Debería encontrar "World"
+	printf ("%s\n", ft_strnstr(big, "Wol", 10));   // Debería retornar NULL
+
+	return (0);
+} */
