@@ -1,7 +1,0 @@
-Línea 1: Hola, mundo.
-Línea 2: Esta línea es un poco más larga para probar el comportamiento.
-Línea 3: ¿Qué tal una línea con un salto?
-Línea 4:
-
-Línea 5: Línea después de una línea vacía.
-Línea 6: Esta línea no tiene salto al final
